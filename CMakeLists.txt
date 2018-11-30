@@ -24,6 +24,8 @@ if ( ZLIB_FOUND )
     target_link_libraries(mini_aevol_gpu PUBLIC sfmt PUBLIC ${ZLIB_LIBRARIES})
 endif( ZLIB_FOUND )
 
+find_package(OpenMP)
+
 add_executable(pdc_mini_aevol main.cpp )
 #cuda_add_executable(pdc_mini_aevol_gpu main.cpp ${cuda_aevol})
 # nvToolsExt for enhanced profiling (ad-hoc chunks)
