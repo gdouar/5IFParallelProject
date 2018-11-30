@@ -51,7 +51,7 @@ void Dna::do_switch(int pos) {
 
 int Dna::promoter_at(int pos) {
   int prom_dist[22];
-
+  #pragma omp parallel for 
   for (int motif_id = 0; motif_id < 22; motif_id++) {
     // Searching for the promoter
     prom_dist[motif_id] =

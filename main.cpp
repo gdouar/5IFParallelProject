@@ -29,8 +29,9 @@
 #include <iostream>
 #include <getopt.h>
 #include <cstring>
-
+#include <omp.h>
 #include "ExpManager.h"
+#define OMP_NUM_THREADS 2
 
 void print_help(char* prog_path) {
     // Get the program file-name in prog_name (strip prog_path of the path)
@@ -78,7 +79,7 @@ int main(int argc, char* argv[]) {
     int resume = -1;
     int backup_step = -1;
     int seed = -1;
-
+	omp_set_num_threads(OMP_NUM_THREADS);
     const char * options_list = "e:::n:w:h:m:g:b:r:s:";
     static struct option long_options_list[] = {
             // Print help
