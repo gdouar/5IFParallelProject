@@ -25,7 +25,7 @@
 // ***************************************************************************************************************
 
 
-
+#include <omp.h>
 #include <cstring>
 #include "Organism.h"
 #include "ExpManager.h"
@@ -487,24 +487,41 @@ void Organism::look_for_new_promoters_starting_between(int32_t pos_1,int32_t pos
         return;
     }
     // Hamming distance of the sequence from the promoter consensus
+	int * countPromAdr = &this->count_prom;
+	std::map<int, Promoter*>* promotersAdr = &this->promoters;
+	std::map<int, int>* promotersPositionAdr = &this->prom_pos;
 
+	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)
+	#pragma omp for 
     for (int32_t i = pos_1; i < pos_2; i++) {
         int8_t dist = dna_->promoter_at(i);
-
         if (dist <= 4) {
             if (prom_pos.find(i) == prom_pos.end()) {
                 Promoter* nprom = new Promoter(i, dist);
-                int prom_idx = count_prom;
-                count_prom = count_prom + 1;
-
-                promoters[prom_idx] = nprom;
-                prom_pos[i] = prom_idx;
+			/*	cout << "promidx =  ";
+				cout << *countPromAdr << endl; */
+				int prom_idx = *countPromAdr; // count_prom;
+               // count_prom = count_prom + 1;
+				#pragma omp critical
+				{
+					*countPromAdr = *countPromAdr + 1;
+					//promoters[prom_idx] = nprom;
+					(*(promotersAdr))[prom_idx] = nprom;
+					//  prom_pos[i] = prom_idx;
+					(*(promotersPositionAdr))[i] = prom_idx;
+				}
             }
         }
     }
 }
 
 void Organism::look_for_new_promoters_starting_after(int32_t pos) {
+	int * countPromAdr = &this->count_prom;
+	std::map<int, Promoter*>* promotersAdr = &this->promoters;
+	std::map<int, int>* promotersPositionAdr = &this->prom_pos;
+
+	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)
+	#pragma omp for 
     for (int32_t i = pos; i < dna_->length(); i++) {
         int dist = dna_->promoter_at(i);
 
@@ -512,10 +529,12 @@ void Organism::look_for_new_promoters_starting_after(int32_t pos) {
             if (prom_pos.find(i) == prom_pos.end()) {
                 Promoter* nprom = new Promoter(i, dist);
                 int prom_idx = count_prom;
-                count_prom = count_prom + 1;
-
-                promoters[prom_idx] = nprom;
-                prom_pos[i] = prom_idx;
+				#pragma omp critical
+				{
+					*countPromAdr = *countPromAdr + 1;
+					(*(promotersAdr))[prom_idx] = nprom;
+					(*(promotersPositionAdr))[i] = prom_idx;
+				}
             }
         }
     }
@@ -523,22 +542,29 @@ void Organism::look_for_new_promoters_starting_after(int32_t pos) {
 
 void Organism::look_for_new_promoters_starting_before(int32_t pos) {
     // Hamming distance of the sequence from the promoter consensus
+	int * countPromAdr = &this->count_prom;
+	std::map<int, Promoter*>* promotersAdr = &this->promoters;
+	std::map<int, int>* promotersPositionAdr = &this->prom_pos;
 
+	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)
+	#pragma omp for 
     for (int32_t i = 0; i < pos; i++) {
 
         int dist = dna_->promoter_at(i);
 
         if (dist <= 4) { // dist takes the hamming distance of the sequence from the consensus
             if (prom_pos.find(i) == prom_pos.end()) {
-                Promoter* nprom = new Promoter(i, dist);
-                int prom_idx = count_prom;
-                count_prom = count_prom + 1;
-
-                promoters[prom_idx] = nprom;
-                prom_pos[i] = prom_idx;
-                }
+				Promoter* nprom = new Promoter(i, dist);
+				int prom_idx = count_prom;
+				#pragma omp critical
+				{
+					*countPromAdr = *countPromAdr + 1;
+					(*(promotersAdr))[prom_idx] = nprom;
+					(*(promotersPositionAdr))[i] = prom_idx;
+				}
             }
         }
+    }
 
 }
 
