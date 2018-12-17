@@ -349,6 +349,7 @@ void ExpManager::do_mutation(int indiv_id) {
     dna_mutator_array_[indiv_id]->generate_mutations();
 
     if (dna_mutator_array_[indiv_id]->hasMutate()) {
+
         internal_organisms_[indiv_id] =
             std::make_shared<Organism>(this, prev_internal_organisms_[next_generation_reproducer_[indiv_id]]);
 
@@ -399,6 +400,8 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
     // Running the simulation process for each organism
     {
         high_resolution_clock::time_point t1 = high_resolution_clock::now();
+		#pragma omp parallel
+		#pragma omp for											//PARALLEL sélection des individus
         for (int indiv_id = 0; indiv_id < nb_indivs_; indiv_id++) {
             selection(indiv_id);
         }
@@ -436,6 +439,8 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
 
 
         t1 = high_resolution_clock::now();
+		#pragma omp parallel
+		#pragma omp for						// PARALLEL calcul protéine
         for (int indiv_id = 0; indiv_id < nb_indivs_; indiv_id++) {
             if (dna_mutator_array_[indiv_id]->hasMutate()) {
                 compute_protein(indiv_id);
@@ -446,6 +451,8 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
 
 
         t1 = high_resolution_clock::now();
+		#pragma omp parallel
+		#pragma omp for					// PARALLEL calcul modèle chimique
         for (int indiv_id = 0; indiv_id < nb_indivs_; indiv_id++) {
             if (dna_mutator_array_[indiv_id]->hasMutate()) {
                 translate_protein(indiv_id, w_max);
@@ -456,6 +463,8 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
 
 
         t1 = high_resolution_clock::now();
+		#pragma omp parallel
+		#pragma omp for							// PARALLEL calcul des phénotypes
         for (int indiv_id = 0; indiv_id < nb_indivs_; indiv_id++) {
             if (dna_mutator_array_[indiv_id]->hasMutate()) {
                 compute_phenotype(indiv_id);
@@ -466,6 +475,8 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
 
 
         t1 = high_resolution_clock::now();
+		#pragma omp parallel
+		#pragma omp for							//PARALLEL calcul de la fitness
         for (int indiv_id = 0; indiv_id < nb_indivs_; indiv_id++) {
             if (dna_mutator_array_[indiv_id]->hasMutate()) {
                 compute_fitness(indiv_id, selection_pressure);
