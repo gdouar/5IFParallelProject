@@ -557,6 +557,7 @@ void ExpManager::start_stop_RNA(int indiv_id) {
             if (dist_lead <= 4) {
                 Promoter* nprom = new Promoter(dna_pos, dist_lead);
                 int prom_idx = internal_organisms[indiv_id]->count_prom;
+                #pragma omp atomic
                 internal_organisms[indiv_id]->count_prom =
                             internal_organisms[indiv_id]->count_prom + 1;
 
@@ -566,10 +567,12 @@ void ExpManager::start_stop_RNA(int indiv_id) {
             // Computing if a terminator exists at that position
             int dist_term_lead = internal_organisms[indiv_id]->dna_->terminator_at(dna_pos);
 
-            if (dist_term_lead == 4) {
+            if (dist_term_lead == 4)
+            {
+                #pragma omp critical
                 internal_organisms[indiv_id]->terminators.insert(
                         dna_pos);
-            } 
+            }
         }
     }
 }
