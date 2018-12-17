@@ -493,7 +493,7 @@ void Organism::look_for_new_promoters_starting_between(int32_t pos_1,int32_t pos
 
 	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)
 	#pragma omp for 
-    for (int32_t i = pos_1; i < pos_2; i++) {
+    for (int32_t i = pos_1; i < pos_2; i++) {			//PARALLEL appel à promoter_at
         int8_t dist = dna_->promoter_at(i);
         if (dist <= 4) {
             if (prom_pos.find(i) == prom_pos.end()) {
@@ -522,7 +522,7 @@ void Organism::look_for_new_promoters_starting_after(int32_t pos) {
 
 	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)
 	#pragma omp for 
-    for (int32_t i = pos; i < dna_->length(); i++) {
+    for (int32_t i = pos; i < dna_->length(); i++) {			//PARALLEL appel à promoter_at
         int dist = dna_->promoter_at(i);
 
         if (dist <= 4) { // dist takes the hamming distance of the sequence from the consensus
@@ -546,7 +546,7 @@ void Organism::look_for_new_promoters_starting_before(int32_t pos) {
 	std::map<int, Promoter*>* promotersAdr = &this->promoters;
 	std::map<int, int>* promotersPositionAdr = &this->prom_pos;
 
-	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)
+	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)		//PARALLEL appel à promoter_at
 	#pragma omp for 
     for (int32_t i = 0; i < pos; i++) {
 
