@@ -502,7 +502,7 @@ void Organism::look_for_new_promoters_starting_between(int32_t pos_1,int32_t pos
 				cout << *countPromAdr << endl; */
 				int prom_idx = *countPromAdr; // count_prom;
                // count_prom = count_prom + 1;
-				#pragma omp critical
+				#pragma omp critical							//TODO améliorer le grain en utilisant ATOMIC
 				{
 					*countPromAdr = *countPromAdr + 1;
 					//promoters[prom_idx] = nprom;
@@ -529,7 +529,7 @@ void Organism::look_for_new_promoters_starting_after(int32_t pos) {
             if (prom_pos.find(i) == prom_pos.end()) {
                 Promoter* nprom = new Promoter(i, dist);
                 int prom_idx = count_prom;
-				#pragma omp critical
+				#pragma omp critical						//TODO améliorer le grain en utilisant ATOMIC
 				{
 					*countPromAdr = *countPromAdr + 1;
 					(*(promotersAdr))[prom_idx] = nprom;
@@ -556,7 +556,7 @@ void Organism::look_for_new_promoters_starting_before(int32_t pos) {
             if (prom_pos.find(i) == prom_pos.end()) {
 				Promoter* nprom = new Promoter(i, dist);
 				int prom_idx = count_prom;
-				#pragma omp critical
+				#pragma omp critical					//TODO améliorer le grain en utilisant ATOMIC
 				{
 					*countPromAdr = *countPromAdr + 1;
 					(*(promotersAdr))[prom_idx] = nprom;
