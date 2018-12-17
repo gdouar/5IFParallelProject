@@ -585,16 +585,14 @@ void ExpManager::opt_prom_compute_RNA(int indiv_id) {
         internal_organisms_[indiv_id]->terminators.clear();
 
         internal_organisms_[indiv_id]->rnas.resize(
-                internal_organisms_[indiv_id]->promoters.size());
+                internal_organisms_[indiv_id]->promoters.size());;
 
-        std::shared_ptr<Organism>* internal_organisms = this->internal_organisms_;
+        for (int prom_idx = 0; prom_idx< internal_organisms_[indiv_id]->promoters.size(); prom_idx++) {
 
-        for (int prom_idx = 0; prom_idx< internal_organisms[indiv_id]->promoters.size(); prom_idx++) {
-
-            if (internal_organisms[indiv_id]->promoters[prom_idx] != nullptr) {
+            if (internal_organisms_[indiv_id]->promoters[prom_idx] != nullptr) {
                 int rna_idx = prom_idx;
                 Promoter *prom;
-                prom = internal_organisms[indiv_id]->promoters[rna_idx];
+                prom = internal_organisms_[indiv_id]->promoters[rna_idx];
 
                 if (prom != nullptr) {
                     int prom_pos;
