@@ -423,7 +423,10 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
         auto duration_start_stop_RNA = std::chrono::duration_cast<std::chrono::microseconds>( t2 - t1 ).count();
 
         t1 = high_resolution_clock::now();
-        for (int indiv_id = 0; indiv_id < nb_indivs_; indiv_id++) {
+
+		#pragma omp parallel
+		#pragma omp for
+        for (int indiv_id = 0; indiv_id < nb_indivs_; indiv_id++) {		//PARALLEL recherche de la séquence protéine
             if (dna_mutator_array_[indiv_id]->hasMutate()) {
                 start_protein(indiv_id);
             }
@@ -749,33 +752,31 @@ void ExpManager::compute_RNA(int indiv_id) {
  * @param indiv_id : Unique identification number of the organism
  */
 void ExpManager::start_protein(int indiv_id) {
+	std::shared_ptr<Organism>** internal_organisms_pointer = &this->internal_organisms_;
     for (int rna_idx = 0; rna_idx <
-                          (int) internal_organisms_[indiv_id]->rna_count_; rna_idx++) {
+                          (int) (*internal_organisms_pointer)[indiv_id]->rna_count_; rna_idx++) {
         {
-            if (internal_organisms_[indiv_id]->rnas[rna_idx]->is_init_) {
-                int c_pos = internal_organisms_[indiv_id]->rnas[rna_idx]->begin;
-                if (internal_organisms_[indiv_id]->rnas[rna_idx]->length >= 22) {
+            if ((*internal_organisms_pointer)[indiv_id]->rnas[rna_idx]->is_init_) {
+                int c_pos = (*internal_organisms_pointer)[indiv_id]->rnas[rna_idx]->begin;
+                if ((*internal_organisms_pointer)[indiv_id]->rnas[rna_idx]->length >= 22) {
 
                     c_pos += 22;
                     c_pos =
-                            c_pos >= internal_organisms_[indiv_id]->length() ?
-                            c_pos - internal_organisms_[indiv_id]->length()
+                            c_pos >= (*internal_organisms_pointer)[indiv_id]->length() ?
+                            c_pos - (*internal_organisms_pointer) [indiv_id]->length()
                                                                              : c_pos;
 
                     while (c_pos !=
-                           internal_organisms_[indiv_id]->rnas[rna_idx]->end) {
+                           (*internal_organisms_pointer)[indiv_id]->rnas[rna_idx]->end) {
 
-
-                        if (internal_organisms_[indiv_id]->dna_->shine_dal_start(c_pos)) {
-                            internal_organisms_[indiv_id]->rnas[rna_idx]->start_prot.
-                                    push_back(c_pos);
+                        if ((*internal_organisms_pointer)[indiv_id]->dna_->shine_dal_start(c_pos)) {
+								(*internal_organisms_pointer)[indiv_id]->rnas[rna_idx]->start_prot.push_back(c_pos);
                         }
-
 
                         c_pos++;
                         c_pos =
-                                c_pos >= internal_organisms_[indiv_id]->length() ?
-                                c_pos - internal_organisms_[indiv_id]->length()
+                                c_pos >= (*internal_organisms_pointer)[indiv_id]->length() ?
+                                c_pos - (*internal_organisms_pointer)[indiv_id]->length()
                                                                                  : c_pos;
                     }
                 }
