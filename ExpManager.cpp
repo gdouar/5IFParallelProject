@@ -695,7 +695,7 @@ void ExpManager::opt_prom_compute_RNA(int indiv_id) {
         internal_organism->rnas.resize(internal_organism->promoters.size());
 
         // PARALLEL : parallelisation de l'utilisation de terminator_at, repetee de tres nombreuses fois ici
-        #pragma omp parallel for shared(internal_organism)
+        // #pragma omp parallel for shared(internal_organism)
         for (int prom_idx = 0; prom_idx< internal_organism->promoters.size(); prom_idx++) {
 
             if (internal_organism->promoters[prom_idx] != nullptr) {
