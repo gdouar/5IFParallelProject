@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Dna.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Dna.h
 cstdio
 -
 cstring
@@ -20,37 +20,37 @@ vector
 zlib.h
 -
 Threefry.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Threefry.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Threefry.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/DnaMutator.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/DnaMutator.h
 list
 -
 vector
 -
 Organism.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Organism.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Organism.h
 Threefry.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Threefry.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Threefry.h
 MutationEvent.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/MutationEvent.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/MutationEvent.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/ExpManager.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/ExpManager.h
 Threefry.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Threefry.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Threefry.h
 DnaMutator.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/DnaMutator.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/DnaMutator.h
 Stats.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Stats.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Stats.h
 memory
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/MutationEvent.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/MutationEvent.h
 cstdint
 -
 vector
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Organism.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Organism.h
 map
 -
 memory
@@ -62,27 +62,27 @@ zlib.h
 list
 -
 Promoter.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Promoter.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Promoter.h
 RNA.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/RNA.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/RNA.h
 Protein.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Protein.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Protein.h
 Dna.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Dna.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Dna.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Promoter.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Promoter.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Protein.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Protein.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/RNA.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/RNA.h
 vector
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/array.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/array.h
 features/compilerfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/compilerfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/compilerfeatures.h
 features/sse.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/sse.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/sse.h
 stddef.h
 -
 algorithm
@@ -96,37 +96,37 @@ limits
 iostream
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/clangfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/clangfeatures.h
 gccfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/gccfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/gccfeatures.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/compilerfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/compilerfeatures.h
 xxxintrin.h
 -
 openclfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/openclfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/openclfeatures.h
 nvccfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/nvccfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/nvccfeatures.h
 iccfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/iccfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/iccfeatures.h
 xlcfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/xlcfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/xlcfeatures.h
 sunprofeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/sunprofeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/sunprofeatures.h
 open64features.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/open64features.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/open64features.h
 clangfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/clangfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/clangfeatures.h
 gccfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/gccfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/gccfeatures.h
 pgccfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/pgccfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/pgccfeatures.h
 msvcfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/msvcfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/msvcfeatures.h
 stdint.h
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/gccfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/gccfeatures.h
 including_a_nonexistent_file_will_stop_some_compilers_from_continuing_with_a_hopeless_task
 -
 ppu_intrinsics.h
@@ -136,31 +136,31 @@ assert.h
 stdint.h
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/iccfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/iccfeatures.h
 assert.h
 -
 stdint.h
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/msvcfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/msvcfeatures.h
 assert.h
 -
 stdint.h
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/nvccfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/nvccfeatures.h
 gccfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/gccfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/gccfeatures.h
 msvcfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/msvcfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/msvcfeatures.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/open64features.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/open64features.h
 gccfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/gccfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/gccfeatures.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/openclfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/openclfeatures.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/pgccfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/pgccfeatures.h
 including_a_nonexistent_file_will_stop_some_compilers_from_continuing_with_a_hopeless_task
 -
 assert.h
@@ -168,7 +168,7 @@ assert.h
 stdint.h
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/sse.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/sse.h
 x86intrin.h
 -
 ia32intrin.h
@@ -190,13 +190,13 @@ limits
 stdexcept
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/sunprofeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/sunprofeatures.h
 assert.h
 -
 stdint.h
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/xlcfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/xlcfeatures.h
 including_a_nonexistent_file_will_stop_some_compilers_from_continuing_with_a_hopeless_task
 -
 builtins.h
@@ -206,13 +206,13 @@ assert.h
 stdint.h
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/threefry.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/threefry.h
 features/compilerfeatures.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/features/compilerfeatures.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/features/compilerfeatures.h
 array.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/array.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/array.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Stats.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Stats.h
 cstdint
 -
 fstream
@@ -220,13 +220,13 @@ fstream
 limits
 -
 Organism.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Organism.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Organism.h
 ExpManager.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/ExpManager.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/ExpManager.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Threefry.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Threefry.h
 Random123/threefry.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/Random123/threefry.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/Random123/threefry.h
 zlib.h
 -
 vector
@@ -236,13 +236,15 @@ utility
 cfloat
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/main.cpp
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/main.cpp
 iostream
 -
 getopt.h
 -
 cstring
 -
+omp.h
+-
 ExpManager.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/ExpManager.h
+/home/lucas/Bureau/INSA/5IF/ProjetGPU/ExpManager.h
 
