@@ -59,7 +59,7 @@ Organism::Organism(ExpManager* exp_m, int length, int indiv_id) {
  * @param genome : Genome to assign to the organism
  * @param indiv_id : Unique Identification Number
  */
-Organism::Organism(ExpManager *exp_m, bool* genome,  int indiv_id, int length) {
+Organism::Organism(ExpManager *exp_m, vector<bool> genome,  int indiv_id, int length) {
     exp_m_ = exp_m;
 
     count_prom = 0;

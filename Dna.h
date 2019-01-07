@@ -34,13 +34,10 @@ class Dna {
 
   Dna(int length, Threefry::Gen& rng);
 
-	Dna(bool* genome, int length) :
+	Dna(std::vector<bool> genome, int length) :
 			seq_(length) {
 		//strcpy(seq_.data(), genome);
-		#pragma omp parallel for
-		for(int i=0;i<length;i++){
-			seq_[i] = genome[i];
-		}
+		seq_ = genome;	// réalise bien une copie
 	}
 
   Dna(int length);
