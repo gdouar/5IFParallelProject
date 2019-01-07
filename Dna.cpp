@@ -47,7 +47,7 @@ void Dna::do_switch(int pos) {
 
 int Dna::promoter_at(int pos) {
   int prom_dist[22];
-  printf("launch promoter_at\n");
+ // printf("launch promoter_at\n");
   for (int motif_id = 0; motif_id < 22; motif_id++) {
     // Searching for the promoter
     prom_dist[motif_id] =
@@ -88,7 +88,7 @@ int Dna::promoter_at(int pos) {
                   prom_dist[20] +
                   prom_dist[21];
 
-  printf("finished promoter_at\n");
+//  printf("finished promoter_at\n");
   return dist_lead;
 }
 
@@ -172,8 +172,7 @@ int Dna::codon_at(int pos) {
         pos + i >= seq_.size() ? pos + i -
                                  seq_.size()
                                : pos + i;
-    if (seq_[t_pos] ==
-        '1')
+    if (seq_[t_pos])
       value += 1 << (CODON_SIZE - i - 1);
   }
 
