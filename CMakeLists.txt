@@ -13,7 +13,7 @@ add_definitions(-DSFMT_MEXP=607)
 
 #cuda_compile(cuda_aevol Algorithms.cu ThreefryGPU.cu)
 
-add_library(mini_aevol_gpu ExpManager.cpp ExpManager.h AeTime.cpp AeTime.h JumpingMT.cpp JumpingMT.h DnaMutator.cpp DnaMutator.h MutationEvent.cpp MutationEvent.cpp Organism.cpp Organism.h Promoter.h RNA.h Protein.h Stats.cpp Stats.h Gaussian.h Threefry.cpp Dna.cpp main.cpp)
+add_library(mini_aevol_gpu ExpManager.cpp ExpManager.h AeTime.cpp AeTime.h JumpingMT.cpp JumpingMT.h DnaMutator.cpp DnaMutator.h MutationEvent.cpp MutationEvent.cpp Organism.cpp Organism.h Promoter.h RNA.h Protein.h Stats.cpp Stats.h Gaussian.h Threefry.cpp Dna.cpp main.cpp OpenMpUtils.h)
 target_include_directories(mini_aevol_gpu INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 
 

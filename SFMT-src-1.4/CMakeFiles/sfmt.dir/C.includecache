@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,73 +6,73 @@
 
 #IncludeRegexTransform: 
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-alti.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-alti.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-common.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-common.h
 SFMT.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params.h
 SFMT-params607.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params607.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params607.h
 SFMT-params1279.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params1279.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params1279.h
 SFMT-params2281.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params2281.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params2281.h
 SFMT-params4253.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params4253.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params4253.h
 SFMT-params11213.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params11213.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params11213.h
 SFMT-params19937.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params19937.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params19937.h
 SFMT-params44497.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params44497.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params44497.h
 SFMT-params86243.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params86243.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params86243.h
 SFMT-params132049.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params132049.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params132049.h
 SFMT-params216091.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params216091.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params216091.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params11213.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params11213.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params1279.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params1279.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params132049.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params132049.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params19937.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params19937.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params216091.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params216091.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params2281.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params2281.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params4253.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params4253.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params44497.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params44497.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params607.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params607.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params86243.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params86243.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-sse2.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-sse2.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT.c
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT.c
 string.h
 -
 assert.h
 -
 SFMT.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT.h
 SFMT-params.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params.h
 SFMT-common.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-common.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-common.h
 SFMT-alti.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-alti.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-alti.h
 SFMT-sse2.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-sse2.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-sse2.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT.h
 stdio.h
 -
 assert.h
@@ -82,7 +82,7 @@ inttypes.h
 inttypes.h
 -
 SFMT-params.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params.h
 altivec.h
 -
 emmintrin.h

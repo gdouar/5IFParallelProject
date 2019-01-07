@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT.h
 stdio.h
 -
 assert.h
@@ -16,13 +16,13 @@ inttypes.h
 inttypes.h
 -
 SFMT-params.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT-params.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT-params.h
 altivec.h
 -
 emmintrin.h
 -
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/jump/SFMT-jump.cpp
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/jump/SFMT-jump.cpp
 assert.h
 -
 stdlib.h
@@ -32,17 +32,17 @@ ctype.h
 string.h
 -
 SFMT-params.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/jump/SFMT-params.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/jump/SFMT-params.h
 SFMT.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/jump/SFMT.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/jump/SFMT.h
 SFMT-jump.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/jump/SFMT-jump.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/jump/SFMT-jump.h
 SFMT-common.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/jump/SFMT-common.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/jump/SFMT-common.h
 
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/jump/SFMT-jump.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/jump/SFMT-jump.h
 ../SFMT.h
-/mnt/d/Data/fic_win/INSA/5IF/ProjetGPU/ProjetParallel/SFMT-src-1.4/SFMT.h
+/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/SFMT.h
 
 SFMT-src-1.4/./SFMT-common.h
 SFMT.h
