@@ -410,7 +410,8 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
 
     // Running the simulation process for each organism
     // PARALLEL : Parallelisation sur les organismes
-    #pragma omp parallel shared(nb_indivs, t1, t2)
+    #pragma omp parallel \
+        shared(nb_indivs, t1, t2, best_fitness, dna_mutator_array, internal_organisms, prev_internal_organisms)
     {
         #pragma omp single
         t1 = high_resolution_clock::now();
