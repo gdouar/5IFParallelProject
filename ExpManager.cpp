@@ -649,7 +649,7 @@ void ExpManager::start_stop_RNA(int indiv_id) {
     std::shared_ptr<Organism> internal_organism = this->internal_organisms_[indiv_id];
 
     // PARALLEL : parallelisation de l'utilisation de terminator_at, repetee de tres nombreuses fois ici
-	#pragma omp parallel for shared(internal_organism)
+	// #pragma omp parallel for shared(internal_organism)
     for (int dna_pos = 0; dna_pos < internal_organism->length(); dna_pos++) {
 
         if (internal_organism->length() >= PROM_SIZE) {
@@ -658,7 +658,7 @@ void ExpManager::start_stop_RNA(int indiv_id) {
             if (dist_lead <= 4) {
                 Promoter* nprom = new Promoter(dna_pos, dist_lead);
                 int prom_idx = internal_organism->count_prom;
-                #pragma omp atomic
+                // #pragma omp atomic
                 internal_organism->count_prom =
                             internal_organism->count_prom + 1;
 
@@ -670,7 +670,7 @@ void ExpManager::start_stop_RNA(int indiv_id) {
 
             if (dist_term_lead == 4)
             {
-                #pragma omp critical
+                // #pragma omp critical
                 internal_organism->terminators.insert(
                         dna_pos);
             }
