@@ -1,0 +1,9 @@
+/build/
+/CMakeFiles/*
+CMakeFiles/*
+SFMT-src-1.4/
+*.o
+*.bin
+*.cmake
+*.make
+*.dir

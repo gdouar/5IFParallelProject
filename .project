@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>pdc_mini_aevol@ProjetGPU</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<triggers>clean,full,incremental,</triggers>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder</name>
+			<triggers>full,incremental,</triggers>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>[Subprojects]</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] pdc_mini_aevol/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] pdc_mini_aevol/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] pdc_mini_aevol/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] pdc_mini_aevol/Object Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] pdc_mini_aevol/Object Libraries</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] pdc_mini_aevol/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] pdc_mini_aevol/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Object Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Object Libraries</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Object Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Object Libraries</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] pdc_mini_aevol/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Header Files/AeTime.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/AeTime.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Header Files/DnaMutator.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/DnaMutator.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Header Files/ExpManager.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/ExpManager.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Header Files/Gaussian.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/Gaussian.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Header Files/JumpingMT.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/JumpingMT.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Header Files/Organism.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/Organism.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Header Files/Promoter.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/Promoter.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Header Files/Protein.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/Protein.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Header Files/RNA.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/RNA.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Header Files/Stats.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/Stats.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Source Files/AeTime.cpp</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/AeTime.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Source Files/Dna.cpp</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/Dna.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Source Files/DnaMutator.cpp</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/DnaMutator.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Source Files/ExpManager.cpp</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/ExpManager.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Source Files/JumpingMT.cpp</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/JumpingMT.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Source Files/MutationEvent.cpp</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/MutationEvent.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Source Files/Organism.cpp</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/Organism.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Source Files/Stats.cpp</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/Stats.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Source Files/Threefry.cpp</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/Threefry.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] mini_aevol_gpu/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-common.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT-common.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-jump.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/jump/SFMT-jump.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-params.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT-params.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-params11213.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT-params11213.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-params1279.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT-params1279.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-params132049.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT-params132049.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-params19937.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT-params19937.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-params216091.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT-params216091.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-params2281.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT-params2281.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-params4253.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT-params4253.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-params44497.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT-params44497.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-params607.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT-params607.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT-params86243.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT-params86243.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Header Files/SFMT.h</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Source Files/SFMT-jump.cpp</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/jump/SFMT-jump.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] sfmt/Source Files/SFMT.c</name>
+			<type>1</type>
+			<location>/home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4/SFMT.c</location>
+		</link>
+	</linkedResources>
+</projectDescription>
