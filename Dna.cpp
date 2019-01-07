@@ -11,12 +11,8 @@ Dna::Dna(const Dna& clone) : seq_(clone.seq_) {
 Dna::Dna(int length, Threefry::Gen& rng) : seq_(length) {
   // Generate a random genome
   for (int32_t i = 0; i < length; i++) {
-    seq_[i] = '0' + rng.random(NB_BASE);
+    seq_[i] = ('0' + rng.random(NB_BASE)) != '0';
   }
-}
-
-Dna::Dna(char* genome, int length) : seq_(length) {
-  strcpy(seq_.data(), genome);
 }
 
 Dna::Dna(int length) : seq_(length) {
@@ -29,14 +25,14 @@ int Dna::length() const {
 void Dna::save(gzFile backup_file) {
   int dna_length = length();
   gzwrite(backup_file, &dna_length, sizeof(dna_length));
-  gzwrite(backup_file, seq_.data(), seq_.size() * sizeof(seq_[0]));
+//  gzwrite(backup_file, seq_.data(), seq_.size() * sizeof(seq_[0])); TODO handle this later
 }
 
 void Dna::load(gzFile backup_file) {
   int dna_length;
   gzread(backup_file,&dna_length,sizeof(dna_length));
 
-  gzread(backup_file, seq_.data(), sizeof(*seq_.data()));
+//  gzread(backup_file, seq_.data(), sizeof(*seq_.data()));
 }
 
 void Dna::set(int pos, char c) {
@@ -44,13 +40,14 @@ void Dna::set(int pos, char c) {
 }
 
 void Dna::do_switch(int pos) {
-  if (seq_[pos] == '0') seq_[pos] = '1';
-  else seq_[pos] = '0';
+  if (!seq_[pos]) seq_[pos] = true;
+  else seq_[pos] = false;
 }
 
 
 int Dna::promoter_at(int pos) {
   int prom_dist[22];
+  printf("launch promoter_at\n");
   for (int motif_id = 0; motif_id < 22; motif_id++) {
     // Searching for the promoter
     prom_dist[motif_id] =
@@ -91,6 +88,7 @@ int Dna::promoter_at(int pos) {
                   prom_dist[20] +
                   prom_dist[21];
 
+  printf("finished promoter_at\n");
   return dist_lead;
 }
 

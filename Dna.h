@@ -15,9 +15,13 @@
 
 constexpr int8_t CODON_SIZE = 3;
 
-constexpr const char* PROM_SEQ = "0101011001110010010110";
-constexpr const char* SHINE_DAL_SEQ = "011011000";
-constexpr const char* PROTEIN_END = "001"; // CODON_STOP
+//constexpr const char* PROM_SEQ = "0101011001110010010110";
+//constexpr const char* SHINE_DAL_SEQ = "011011000";
+//constexpr const char* PROTEIN_END = "001"; // CODON_STOP
+
+constexpr const bool PROM_SEQ[22] = {false,true,false,true,false,true,true,false,false,true,true,true,false,false,true,false,false,true,false,true,true,false};
+constexpr const bool SHINE_DAL_SEQ[9] = {false,true,true,false,true,true,false,false,false};
+constexpr const bool PROTEIN_END[3] = {false,false,true};
 
 class ExpManager;
 
@@ -30,7 +34,13 @@ class Dna {
 
   Dna(int length, Threefry::Gen& rng);
 
-  Dna(char* genome, int length);
+	Dna(bool* genome, int length) :
+			seq_(length) {
+		//strcpy(seq_.data(), genome);
+		for(int i=0;i<length;i++){
+			seq_[i] = genome[i];
+		}
+	}
 
   Dna(int length);
 
@@ -55,5 +65,7 @@ class Dna {
 
   int codon_at(int pos);
 
-  std::vector<char> seq_;
+  //std::vector<char> seq_;
+  std::vector<bool> seq_;
+
 };
