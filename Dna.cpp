@@ -25,7 +25,7 @@ int Dna::length() const {
 void Dna::save(gzFile backup_file) {
   int dna_length = length();
   gzwrite(backup_file, &dna_length, sizeof(dna_length));
-//  gzwrite(backup_file, seq_.data(), seq_.size() * sizeof(seq_[0])); TODO handle this later
+ // gzwrite(backup_file, seq_.data(), seq_.size() * sizeof(seq_[0]));
 }
 
 void Dna::load(gzFile backup_file) {
@@ -48,14 +48,16 @@ void Dna::do_switch(int pos) {
 int Dna::promoter_at(int pos) {
   int prom_dist[22];
  // printf("launch promoter_at\n");
+  size_t sizeSeq = seq_.size();
+ #pragma omp simd
   for (int motif_id = 0; motif_id < 22; motif_id++) {
     // Searching for the promoter
     prom_dist[motif_id] =
         PROM_SEQ[motif_id] ==
         seq_[
-            pos + motif_id >= seq_.size() ? pos +
+            pos + motif_id >= sizeSeq ? pos +
                                             motif_id -
-                                            seq_.size()
+											sizeSeq
                                           : pos +
                                             motif_id]
         ? 0
@@ -94,18 +96,19 @@ int Dna::promoter_at(int pos) {
 
 int Dna::terminator_at(int pos) {
   int term_dist[4];
+  size_t sizeSeq = seq_.size();
   for (int motif_id = 0; motif_id < 4; motif_id++) {
 
     // Search for the terminators
     term_dist[motif_id] =
         seq_[
-            pos + motif_id >= seq_.size() ? pos +
+            pos + motif_id >= sizeSeq ? pos +
                                             motif_id -
-                                            seq_.size() :
+											sizeSeq :
             pos + motif_id] !=
         seq_[
-            pos - motif_id + 10 >= seq_.size() ?
-            pos - motif_id + 10 - seq_.size() :
+            pos - motif_id + 10 >= sizeSeq ?
+            pos - motif_id + 10 - sizeSeq :
             pos -
             motif_id +
             10] ? 1
