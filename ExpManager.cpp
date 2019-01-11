@@ -411,11 +411,10 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
     // Running the simulation process for each organism
     // PARALLEL : Parallelisation sur les organismes
     #pragma omp parallel \
-        shared(nb_indivs, t1, t2, duration_selection, duration_mutation)
+        shared(nb_indivs, t1, t2, duration_selection, duration_mutation, duration_start_stop_RNA, \
+                duration_start_protein, duration_compute_protein, duration_translate_protein, \
+                duration_compute_phenotype, duration_compute_fitness)
         //best_fitness, dna_mutator_array, internal_organisms, prev_internal_organisms, \
-         //       , duration_start_stop_RNA, duration_start_protein, \
-         //       duration_compute_protein, duration_translate_protein, duration_compute_phenotype, \
-         //       duration_compute_fitness)
     {
         #pragma omp single
         t1 = high_resolution_clock::now();
@@ -461,11 +460,11 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
             t2 = high_resolution_clock::now();
             duration_start_stop_RNA = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
         }
-    }
-//        #pragma omp single
+
+        #pragma omp single
         t1 = high_resolution_clock::now();
 
-        #pragma omp parallel for
+        #pragma omp for
         for (int indiv_id = 0; indiv_id < nb_indivs; indiv_id++)
         {
             if (dna_mutator_array[indiv_id]->hasMutate())
@@ -474,16 +473,16 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
             }
         }
 
-//        #pragma omp single nowait
-//        {
+        #pragma omp single nowait
+        {
             t2 = high_resolution_clock::now();
             duration_start_protein = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
-//        }
+        }
 
-//        #pragma omp single
+        #pragma omp single
         t1 = high_resolution_clock::now();
 
-        #pragma omp parallel for
+        #pragma omp for
         for (int indiv_id = 0; indiv_id < nb_indivs; indiv_id++)
         {
             if (dna_mutator_array[indiv_id]->hasMutate())
@@ -492,16 +491,16 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
             }
         }
 
-//        #pragma omp single nowait
-//        {
+        #pragma omp single nowait
+        {
             t2 = high_resolution_clock::now();
             duration_compute_protein = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
-//        }
+        }
 
-//        #pragma omp single
+        #pragma omp single
         t1 = high_resolution_clock::now();
 
-        #pragma omp parallel for
+        #pragma omp for
         for (int indiv_id = 0; indiv_id < nb_indivs; indiv_id++)
         {
             if (dna_mutator_array[indiv_id]->hasMutate())
@@ -510,16 +509,16 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
             }
         }
 
-//        #pragma omp single nowait
-//        {
+        #pragma omp single nowait
+        {
             t2 = high_resolution_clock::now();
             duration_translate_protein = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
-//        }
+        }
 
-//        #pragma omp single
+        #pragma omp single
         t1 = high_resolution_clock::now();
 
-        #pragma omp parallel for
+        #pragma omp for
         for (int indiv_id = 0; indiv_id < nb_indivs; indiv_id++)
         {
             if (dna_mutator_array[indiv_id]->hasMutate())
@@ -528,16 +527,16 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
             }
         }
 
-//        #pragma omp single nowait
-//        {
+        #pragma omp single nowait
+        {
             t2 = high_resolution_clock::now();
             duration_compute_phenotype = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
-//        }
+        }
 
-//        #pragma omp single
+        #pragma omp single
         t1 = high_resolution_clock::now();
 
-        #pragma omp parallel for
+        #pragma omp for
         for (int indiv_id = 0; indiv_id < nb_indivs; indiv_id++)
         {
             if (dna_mutator_array[indiv_id]->hasMutate())
@@ -545,7 +544,7 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
                 compute_fitness(indiv_id, selection_pressure);
             }
         }
-
+    }
 //        #pragma omp single
 //        {
             t2 = high_resolution_clock::now();
