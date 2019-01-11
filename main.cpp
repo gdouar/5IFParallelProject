@@ -31,7 +31,7 @@
 #include <cstring>
 #include <omp.h>
 #include "ExpManager.h"
-#define OMP_NUM_THREADS 8
+#define OMP_NUM_THREADS 1
 
 void print_help(char* prog_path) {
     // Get the program file-name in prog_name (strip prog_path of the path)
