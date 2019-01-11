@@ -544,9 +544,9 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
                 compute_fitness(indiv_id, selection_pressure);
             }
         }
-    }
-//        #pragma omp single
-//        {
+
+        #pragma omp single
+        {
             t2 = high_resolution_clock::now();
             duration_compute_fitness = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
@@ -557,7 +557,8 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
                       << duration_translate_protein
                       << "," << duration_compute_phenotype << "," << duration_compute_phenotype
                       << "," << duration_compute_fitness << std::endl;
-//        }
+        }
+    }
 
         #pragma omp parallel for
         for (int indiv_id = 1; indiv_id < nb_indivs; indiv_id++)
