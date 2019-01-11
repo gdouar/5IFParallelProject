@@ -411,9 +411,9 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
     // Running the simulation process for each organism
     // PARALLEL : Parallelisation sur les organismes
     #pragma omp parallel \
-        shared(nb_indivs, t1, t2, duration_selection)
+        shared(nb_indivs, t1, t2, duration_selection, duration_mutation)
         //best_fitness, dna_mutator_array, internal_organisms, prev_internal_organisms, \
-         //       , duration_mutation, duration_start_stop_RNA, duration_start_protein, \
+         //       , duration_start_stop_RNA, duration_start_protein, \
          //       duration_compute_protein, duration_translate_protein, duration_compute_phenotype, \
          //       duration_compute_fitness)
     {
@@ -431,9 +431,8 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
             t2 = high_resolution_clock::now();
             duration_selection = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
         }
-    }
 
-//        #pragma omp single
+        #pragma omp single
         t1 = high_resolution_clock::now();
 
         #pragma omp parallel for
@@ -442,11 +441,12 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
             do_mutation(indiv_id);
         }
 
-//        #pragma omp single nowait
-//        {
+        #pragma omp single nowait
+        {
             t2 = high_resolution_clock::now();
             duration_mutation = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
-//        }
+        }
+    }
 
 //        #pragma omp single
         t1 = high_resolution_clock::now();
