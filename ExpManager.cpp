@@ -446,9 +446,8 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
             t2 = high_resolution_clock::now();
             duration_mutation = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
         }
-    }
 
-//        #pragma omp single
+        #pragma omp single
         t1 = high_resolution_clock::now();
 
         #pragma omp parallel for
@@ -457,12 +456,12 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
             opt_prom_compute_RNA(indiv_id);
         }
 
-//        #pragma omp single nowait
-//        {
+        #pragma omp single nowait
+        {
             t2 = high_resolution_clock::now();
             duration_start_stop_RNA = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
-//        }
-
+        }
+    }
 //        #pragma omp single
         t1 = high_resolution_clock::now();
 
