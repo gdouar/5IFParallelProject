@@ -450,7 +450,7 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
         #pragma omp single
         t1 = high_resolution_clock::now();
 
-        #pragma omp parallel for
+        #pragma omp for
         for (int indiv_id = 0; indiv_id < nb_indivs; indiv_id++)
         {
             opt_prom_compute_RNA(indiv_id);
