@@ -573,6 +573,7 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
             best_fitness.index = 0;
         }
 
+        // PARALLEL : reduction customisee pour recuperer l'index de la valeur la plus haute
         #pragma omp for reduction(minindex:best_fitness)
         for (int indiv_id = 1; indiv_id < nb_indivs; indiv_id++)
         {
