@@ -51,14 +51,16 @@ void Dna::do_switch(int pos) {
 
 int Dna::promoter_at(int pos) {
   int prom_dist[22];
+  size_t size = seq_.size();
+  #pragma omp simd
   for (int motif_id = 0; motif_id < 22; motif_id++) {
     // Searching for the promoter
     prom_dist[motif_id] =
         PROM_SEQ[motif_id] ==
         seq_[
-            pos + motif_id >= seq_.size() ? pos +
+            pos + motif_id >= size ? pos +
                                             motif_id -
-                                            seq_.size()
+                                            size
                                           : pos +
                                             motif_id]
         ? 0
@@ -96,18 +98,19 @@ int Dna::promoter_at(int pos) {
 
 int Dna::terminator_at(int pos) {
   int term_dist[4];
+  size_t size = seq_.size();
   for (int motif_id = 0; motif_id < 4; motif_id++) {
 
     // Search for the terminators
     term_dist[motif_id] =
         seq_[
-            pos + motif_id >= seq_.size() ? pos +
+            pos + motif_id >= size ? pos +
                                             motif_id -
-                                            seq_.size() :
+                                            size :
             pos + motif_id] !=
         seq_[
-            pos - motif_id + 10 >= seq_.size() ?
-            pos - motif_id + 10 - seq_.size() :
+            pos - motif_id + 10 >= size ?
+            pos - motif_id + 10 - size :
             pos -
             motif_id +
             10] ? 1
@@ -124,11 +127,11 @@ int Dna::terminator_at(int pos) {
 bool Dna::shine_dal_start(int pos) {
   bool start = false;
   int t_pos, k_t;
-
+  size_t size = seq_.size();
   for (int k = 0; k < 9; k++) {
     k_t = k >= 6 ? k + 4 : k;
-    t_pos = pos + k_t >= seq_.size() ? pos + k_t -
-                                       seq_.size()
+    t_pos = pos + k_t >= size ? pos + k_t -
+                                      size
                                      : pos + k_t;
 
     if (seq_[t_pos] ==
@@ -146,10 +149,10 @@ bool Dna::shine_dal_start(int pos) {
 bool Dna::protein_stop(int pos) {
   bool is_protein;
   int t_k;
-
+  size_t size = seq_.size();
   for (int k = 0; k < 3; k++) {
-    t_k = pos + k >= seq_.size() ?
-          pos - seq_.size() + k :
+    t_k = pos + k >= size ?
+          pos - size + k :
           pos + k;
 
     if (seq_[t_k] ==
@@ -168,11 +171,11 @@ int Dna::codon_at(int pos) {
   int value = 0;
 
   int t_pos;
-
+  size_t size = seq_.size();
   for (int i = 0; i < 3; i++) {
     t_pos =
-        pos + i >= seq_.size() ? pos + i -
-                                 seq_.size()
+        pos + i >= size ? pos + i -
+                                 size
                                : pos + i;
     if (seq_[t_pos] ==
         '1')
