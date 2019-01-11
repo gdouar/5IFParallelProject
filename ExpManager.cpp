@@ -426,7 +426,7 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
             selection(indiv_id);
         }
 
-        #pragma omp single nowait
+        #pragma omp single
         {
             t2 = high_resolution_clock::now();
             duration_selection = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
