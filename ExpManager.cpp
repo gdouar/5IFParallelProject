@@ -571,15 +571,15 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
         {
             best_fitness.val = prev_internal_organisms[0]->fitness;
             best_fitness.index = 0;
+        }
 
-            //#pragma omp for reduction(minindex:best_fitness)
-            for (int indiv_id = 1; indiv_id < nb_indivs; indiv_id++)
+        #pragma omp for reduction(minindex:best_fitness)
+        for (int indiv_id = 1; indiv_id < nb_indivs; indiv_id++)
+        {
+            if (prev_internal_organisms[indiv_id]->fitness > best_fitness.val)
             {
-                if (prev_internal_organisms[indiv_id]->fitness > best_fitness.val)
-                {
-                    best_fitness.val = prev_internal_organisms[indiv_id]->fitness;
-                    best_fitness.index = indiv_id;
-                }
+                best_fitness.val = prev_internal_organisms[indiv_id]->fitness;
+                best_fitness.index = indiv_id;
             }
         }
 
