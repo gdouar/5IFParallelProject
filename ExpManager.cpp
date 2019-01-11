@@ -414,7 +414,7 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
         shared(nb_indivs, t1, t2, duration_selection, duration_mutation, duration_start_stop_RNA, \
                 duration_start_protein, duration_compute_protein, duration_translate_protein, \
                 duration_compute_phenotype, duration_compute_fitness)
-        //best_fitness, dna_mutator_array, internal_organisms, prev_internal_organisms, \
+        //best_fitness, dna_mutator_array, internal_organisms, prev_internal_organisms,
     {
         #pragma omp single
         t1 = high_resolution_clock::now();
