@@ -25,7 +25,7 @@
 // ***************************************************************************************************************
 
 
-
+#include <vector>
 #include <iostream>
 #include <getopt.h>
 #include <cstring>
@@ -177,18 +177,26 @@ int main(int argc, char* argv[]) {
 
 
 
-    ExpManager *exp_manager;
+  /*  ExpManager *exp_manager;
     if (resume == -1) {
         exp_manager = new ExpManager(height, width, seed, mutation_rate, genome_size, 0.03, 100,
                                                  backup_step);
     } else {
         printf("Resuming...\n");
         exp_manager = new ExpManager(resume);
-    }
+    } */
+  
+    std::vector<bool> test = {false,false,true,false,true,false,true,false};
+    Dna adn(test, test.size());
 
-    exp_manager->run_evolution(nbstep);
+    std::vector<bool> test2 = {true,false,true,false,true,false,true};
+    Dna adn2(test2, test2.size());
 
-    delete exp_manager;
+    std::vector<bool> test3 = {true,false,true,false,true,false};
+    Dna adn3(test3, test3.size());
+   // exp_manager->run_evolution(nbstep);
+
+ //   delete exp_manager;
 
     return 0;
 }

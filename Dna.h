@@ -34,11 +34,33 @@ class Dna {
 
   Dna(int length, Threefry::Gen& rng);
 
-	Dna(std::vector<bool> genome, int length) :
-			seq_(length) {
+	Dna(std::vector<bool> genome, int length){
 		//strcpy(seq_.data(), genome);
-		seq_ = genome;	// réalise bien une copie
+    int index = 0;
+    seq_ = (int8_t*) malloc(length * sizeof(int8_t));
+    printf("length=%d\n", length);
+    for(int i=0;i<length;i = i+8){
+      bool arr[8];
+      for(int j=i;j<i+8;j++){
+        arr[j-i] = genome[j];
+        printf("j=%d, arr[%d] = ",j, j-i);
+        printf(genome[j] ? "true" : "false");
+        printf("\n");
+      }
+      seq_[index] = ToByte(arr);
+      printf("added %d\n", seq_[index]);
+      index++;
+    }
 	}
+
+  inline int8_t ToByte(bool b[8])
+    {
+        int8_t c = 0b00;
+        for (int i = 0; i < 8; i++) {
+          c = c | (b[7 - i] << i);
+        }
+        return c;
+    }
 
   Dna(int length);
 
@@ -64,6 +86,7 @@ class Dna {
   int codon_at(int pos);
 
   //std::vector<char> seq_;
-  std::vector<bool> seq_;
-
+  //std::vector<bool> seq_;
+  int8_t* seq_;
+  int seqLength;
 };

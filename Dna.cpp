@@ -5,21 +5,32 @@
 #include "Dna.h"
 #include "ExpManager.h"
 
-Dna::Dna(const Dna& clone) : seq_(clone.seq_) {
+Dna::Dna(const Dna& clone) {
+   this->seqLength = clone.length();
+   seq_ = (int8_t*) malloc(this->length() * sizeof(int8_t));
 }
 
-Dna::Dna(int length, Threefry::Gen& rng) : seq_(length) {
+Dna::Dna(int length, Threefry::Gen& rng) : seqLength(length) {
+   seq_ = (int8_t*) malloc(length * sizeof(int8_t));
+  int index = 0;
   // Generate a random genome
-  for (int32_t i = 0; i < length; i++) {
-    seq_[i] = ('0' + rng.random(NB_BASE)) != '0';
+  for(int32_t i=0;i<length-8; i = i+8){
+    bool arr[8];
+    for(int j=0;j<8;j++)  arr[i] = ('0' + rng.random(NB_BASE)) != '0';
+    seq_[index] = ToByte(arr);
+    index++;
   }
+ /* for (int32_t i = 0; i < length; i++) {
+    seq_[i] = ('0' + rng.random(NB_BASE)) != '0';
+  } */
 }
 
-Dna::Dna(int length) : seq_(length) {
+Dna::Dna(int length) : seqLength(length){
+   seq_ = (int8_t*) malloc(length * sizeof(int8_t));
 }
 
 int Dna::length() const {
-  return seq_.size();
+  return this->seqLength;
 }
 
 void Dna::save(gzFile backup_file) {
@@ -48,7 +59,7 @@ void Dna::do_switch(int pos) {
 int Dna::promoter_at(int pos) {
   int prom_dist[22];
  // printf("launch promoter_at\n");
-  size_t sizeSeq = seq_.size();
+  /*size_t sizeSeq = seq_.size();
  #pragma omp simd
   for (int motif_id = 0; motif_id < 22; motif_id++) {
     // Searching for the promoter
@@ -63,7 +74,7 @@ int Dna::promoter_at(int pos) {
         ? 0
         : 1;
 
-  }
+  }*/
 
 
   // Computing if a promoter exists at that position
@@ -91,12 +102,13 @@ int Dna::promoter_at(int pos) {
                   prom_dist[21];
 
 //  printf("finished promoter_at\n");
-  return dist_lead;
+//  return dist_lead;
+  return 0;
 }
 
 int Dna::terminator_at(int pos) {
   int term_dist[4];
-  size_t sizeSeq = seq_.size();
+/*  size_t sizeSeq = seq_.size();
   for (int motif_id = 0; motif_id < 4; motif_id++) {
 
     // Search for the terminators
@@ -119,11 +131,12 @@ int Dna::terminator_at(int pos) {
                        term_dist[2] +
                        term_dist[3];
 
-  return dist_term_lead;
+  return dist_term_lead;*/
+  return 0;
 }
 
 bool Dna::shine_dal_start(int pos) {
-  bool start = false;
+/*  bool start = false;
   int t_pos, k_t;
 
   for (int k = 0; k < 9; k++) {
@@ -141,11 +154,12 @@ bool Dna::shine_dal_start(int pos) {
     }
   }
 
-  return start;
+  return start; */
+  return true;
 }
 
 bool Dna::protein_stop(int pos) {
-  bool is_protein;
+/*  bool is_protein;
   int t_k;
 
   for (int k = 0; k < 3; k++) {
@@ -160,13 +174,13 @@ bool Dna::protein_stop(int pos) {
       is_protein = false;
       break;
     }
-  }
-
-  return is_protein;
+  } */
+return true;
+  //return is_protein;
 }
 
 int Dna::codon_at(int pos) {
-  int value = 0;
+/*  int value = 0;
 
   int t_pos;
 
@@ -179,5 +193,6 @@ int Dna::codon_at(int pos) {
       value += 1 << (CODON_SIZE - i - 1);
   }
 
-  return value;
+  return value;*/
+  return true;
 }
