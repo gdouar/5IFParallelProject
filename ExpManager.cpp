@@ -565,11 +565,10 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
             prev_internal_organisms[indiv_id] = internal_organisms[indiv_id];
             internal_organisms[indiv_id] = nullptr;
         }
-    }
 
         // Search for the best
-//        #pragma omp single
-//        {
+        #pragma omp single
+        {
             best_fitness.val = prev_internal_organisms[0]->fitness;
             best_fitness.index = 0;
 
@@ -582,11 +581,11 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
                     best_fitness.index = indiv_id;
                 }
             }
-//        }
+        }
 
         //std::vector<int> already_seen;
 
-        #pragma omp parallel for
+        #pragma omp for
         for (int indiv_id = 0; indiv_id < nb_indivs; indiv_id++)
         {
             //if (std::find(already_seen.begin(), already_seen.end(), indiv_id) == already_seen.end())
@@ -624,7 +623,7 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
                 }
             }
         }
-//    }
+    }
 
     // Stats
     if (first_gen)
