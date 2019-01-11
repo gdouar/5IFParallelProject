@@ -558,14 +558,14 @@ void ExpManager::run_a_step(double w_max, double selection_pressure, bool first_
                       << "," << duration_compute_phenotype << "," << duration_compute_phenotype
                       << "," << duration_compute_fitness << std::endl;
         }
-    }
 
-        #pragma omp parallel for
+        #pragma omp for
         for (int indiv_id = 1; indiv_id < nb_indivs; indiv_id++)
         {
             prev_internal_organisms[indiv_id] = internal_organisms[indiv_id];
             internal_organisms[indiv_id] = nullptr;
         }
+    }
 
         // Search for the best
 //        #pragma omp single
