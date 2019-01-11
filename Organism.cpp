@@ -490,9 +490,9 @@ void Organism::look_for_new_promoters_starting_between(int32_t pos_1,int32_t pos
 	std::map<int, Promoter*>* promotersAdr = &this->promoters;
 	std::map<int, int>* promotersPositionAdr = &this->prom_pos;
 
-	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)
+	#pragma omp parallel 
 	#pragma omp for 
-    for (int32_t i = pos_1; i < pos_2; i++) {			//PARALLEL appel à promoter_at
+    for (int32_t i = pos_1; i < pos_2; i++) {			//PARALLEL appel ï¿½ promoter_at
         int8_t dist = dna_->promoter_at(i);
         if (dist <= 4) {
             if (prom_pos.find(i) == prom_pos.end()) {
@@ -501,7 +501,7 @@ void Organism::look_for_new_promoters_starting_between(int32_t pos_1,int32_t pos
 				cout << *countPromAdr << endl; */
 				int prom_idx = *countPromAdr; // count_prom;
                // count_prom = count_prom + 1;
-				#pragma omp critical							//TODO améliorer le grain en utilisant ATOMIC
+				#pragma omp critical							//TODO amï¿½liorer le grain en utilisant ATOMIC
 				{
 					*countPromAdr = *countPromAdr + 1;
 					//promoters[prom_idx] = nprom;
@@ -519,16 +519,16 @@ void Organism::look_for_new_promoters_starting_after(int32_t pos) {
 	std::map<int, Promoter*>* promotersAdr = &this->promoters;
 	std::map<int, int>* promotersPositionAdr = &this->prom_pos;
 
-	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)
+	#pragma omp parallel
 	#pragma omp for 
-    for (int32_t i = pos; i < dna_->length(); i++) {			//PARALLEL appel à promoter_at
+    for (int32_t i = pos; i < dna_->length(); i++) {			//PARALLEL appel ï¿½ promoter_at
         int dist = dna_->promoter_at(i);
 
         if (dist <= 4) { // dist takes the hamming distance of the sequence from the consensus
             if (prom_pos.find(i) == prom_pos.end()) {
                 Promoter* nprom = new Promoter(i, dist);
                 int prom_idx = count_prom;
-				#pragma omp critical						//TODO améliorer le grain en utilisant ATOMIC
+				#pragma omp critical						//TODO amï¿½liorer le grain en utilisant ATOMIC
 				{
 					*countPromAdr = *countPromAdr + 1;
 					(*(promotersAdr))[prom_idx] = nprom;
@@ -545,7 +545,7 @@ void Organism::look_for_new_promoters_starting_before(int32_t pos) {
 	std::map<int, Promoter*>* promotersAdr = &this->promoters;
 	std::map<int, int>* promotersPositionAdr = &this->prom_pos;
 
-	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)		//PARALLEL appel à promoter_at
+	#pragma omp parallel
 	#pragma omp for 
     for (int32_t i = 0; i < pos; i++) {
 
@@ -555,7 +555,7 @@ void Organism::look_for_new_promoters_starting_before(int32_t pos) {
             if (prom_pos.find(i) == prom_pos.end()) {
 				Promoter* nprom = new Promoter(i, dist);
 				int prom_idx = count_prom;
-				#pragma omp critical					//TODO améliorer le grain en utilisant ATOMIC
+				#pragma omp critical					//TODO amï¿½liorer le grain en utilisant ATOMIC
 				{
 					*countPromAdr = *countPromAdr + 1;
 					(*(promotersAdr))[prom_idx] = nprom;
