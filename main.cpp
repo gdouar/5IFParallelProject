@@ -30,6 +30,8 @@
 #include <getopt.h>
 #include <cstring>
 #include <omp.h>
+#include <chrono>
+#include <utility>
 #include "ExpManager.h"
 #define OMP_NUM_THREADS 16
 
@@ -70,7 +72,7 @@ void print_help(char* prog_path) {
 }
 
 int main(int argc, char* argv[]) {
-
+    std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
     int nbstep = -1;
     int width = -1;
     int height = -1;
@@ -195,6 +197,8 @@ int main(int argc, char* argv[]) {
     exp_manager->run_evolution(nbstep);
 
     delete exp_manager;
-
+    std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+    auto duration_selection = std::chrono::duration_cast<std::chrono::microseconds>( t2 - t1 ).count();
+    printf("%ld\n", duration_selection);
     return 0;
 }
