@@ -697,9 +697,10 @@ void ExpManager::opt_prom_compute_RNA(int indiv_id) {
 
         internal_organism->rnas.resize(internal_organism->promoters.size());
 
-        // PARALLEL : parallelisation de l'utilisation de terminator_at, repetee de tres nombreuses fois ici
-        // #pragma omp parallel for shared(internal_organism)
-        for (int prom_idx = 0; prom_idx< internal_organism->promoters.size(); prom_idx++) {
+        // PARALLEL : parallelisation et optimisation de l'utilisation de terminator_at,
+        // repetee de tres nombreuses fois ici
+        #pragma omp parallel for
+        for (int prom_idx = 0; prom_idx < internal_organism->promoters.size(); prom_idx++) {
 
             if (internal_organism->promoters[prom_idx] != nullptr) {
                 int rna_idx = prom_idx;
@@ -709,16 +710,13 @@ void ExpManager::opt_prom_compute_RNA(int indiv_id) {
                 if (prom != nullptr) {
                     int prom_pos;
                     double prom_error;
-                    prom_pos = internal_organism->promoters[rna_idx]->pos;
-                    prom_error = fabs(
-                            ((float) internal_organism->promoters[rna_idx]->error));
+                    prom_pos = prom->pos;
+                    prom_error = fabs((float)(prom->error));
 
                         /* Search for terminators */
-                        int cur_pos =
-                                prom_pos + 22;
-                        cur_pos = cur_pos >= internal_organism->length() ? cur_pos -
-                                internal_organism->length() :
-                                  cur_pos;
+                        int cur_pos = prom_pos + 22;
+                        cur_pos = (cur_pos >= internal_organism->length()) ?
+                                cur_pos - internal_organism->length() : cur_pos;
                         int start_pos = cur_pos;
 
                         bool terminator_found = false;
@@ -750,34 +748,33 @@ void ExpManager::opt_prom_compute_RNA(int indiv_id) {
                         if (!no_terminator) {
 
                             int32_t rna_end =
-                                    cur_pos + 10 >= internal_organisms_[indiv_id]->length() ?
-                                    cur_pos + 10 - internal_organisms_[indiv_id]->length() :
+                                    cur_pos + 10 >= internal_organism->length() ?
+                                    cur_pos + 10 - internal_organism->length() :
                                     cur_pos + 10;
 
                             int32_t rna_length = 0;
 
-                            if (prom_pos
-                                > rna_end)
-                                rna_length = internal_organisms_[indiv_id]->length() -
-                                             prom_pos
-                                             + rna_end;
+                            if (prom_pos > rna_end)
+                                rna_length = internal_organism->length() - prom_pos + rna_end;
                             else
                                 rna_length = rna_end - prom_pos;
 
                             rna_length -= 21;
 
                             if (rna_length > 0) {
-                                int glob_rna_idx = internal_organisms_[indiv_id]->rna_count_;
-                                internal_organisms_[indiv_id]->rna_count_ =
-                                        internal_organisms_[indiv_id]->rna_count_ + 1;
 
-                                internal_organisms_[indiv_id]->rnas[glob_rna_idx] = new RNA(
-                                        internal_organisms_[indiv_id]->promoters[rna_idx]->pos,
+                                int glob_rna_idx
+
+                                #pragma omp atomic
+                                glob_rna_idx = (internal_organism->rna_count_)++;
+
+                                #pragma omp critical
+                                internal_organism->rnas[glob_rna_idx] = new RNA(
+                                        prom_pos,
                                         rna_end,
                                         1.0 -
-                                        std::fabs(
-                                                ((float) internal_organisms_[indiv_id]->promoters[rna_idx]->error)) /
-                                        5.0, rna_length);
+                                        prom_error / 5.0,
+                                        rna_length);
                             }
 
                         }

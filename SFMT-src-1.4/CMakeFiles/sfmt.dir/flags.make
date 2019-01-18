@@ -9,7 +9,7 @@ C_DEFINES = -DSFMT_MEXP=607 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS
 
 C_INCLUDES = -I/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/. 
 
-CXX_FLAGS = -pg -fopenmp   -std=c++14 -std=gnu++14
+CXX_FLAGS = -fopenmp   -std=c++14 -std=gnu++14
 
 CXX_DEFINES = -DSFMT_MEXP=607 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS
 
