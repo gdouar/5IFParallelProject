@@ -699,7 +699,7 @@ void ExpManager::opt_prom_compute_RNA(int indiv_id) {
 
         // PARALLEL : parallelisation et optimisation de l'utilisation de terminator_at,
         // repetee de tres nombreuses fois ici
-        #pragma omp parallel for
+        // #pragma omp parallel for
         for (int prom_idx = 0; prom_idx < internal_organism->promoters.size(); prom_idx++) {
 
             if (internal_organism->promoters[prom_idx] != nullptr) {
@@ -763,9 +763,9 @@ void ExpManager::opt_prom_compute_RNA(int indiv_id) {
 
                             if (rna_length > 0) {
 
-                                int glob_rna_idx
+                                int glob_rna_idx;
 
-                                #pragma omp atomic
+                                #pragma omp critical
                                 glob_rna_idx = (internal_organism->rna_count_)++;
 
                                 #pragma omp critical
