@@ -356,15 +356,10 @@ void ExpManager::do_mutation(int indiv_id) {
 
         internal_organisms_[indiv_id]->global_id = AeTime::time() * nb_indivs_ + indiv_id;
         internal_organisms_[indiv_id]->indiv_id_ = indiv_id;
-        internal_organisms_[indiv_id]->parent_id_ =
-                next_generation_reproducer_[indiv_id];
+        internal_organisms_[indiv_id]->parent_id_ = next_generation_reproducer_[indiv_id];
 
         internal_organisms_[indiv_id]->apply_mutations();
-        auto t1 = high_resolution_clock::now();
         internal_organisms_[indiv_id]->remove_all_promoters();
-        auto t2 = high_resolution_clock::now();
-        auto duration_remove = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
-        std::cout << "Remove : " << duration_remove << std::endl;
         internal_organisms_[indiv_id]->locate_promoters();
     } else {
         int parent_id = next_generation_reproducer_[indiv_id];

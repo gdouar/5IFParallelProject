@@ -247,7 +247,7 @@ void Organism::apply_mutations() {
             }
         }
 
-    } while (exp_m_->dna_mutator_array_[indiv_id_]->mutation_available() > 0);
+    } while (exp_m_->dna_mutator_array_[indiv_id_]->mutation_available());
 
 }
 
