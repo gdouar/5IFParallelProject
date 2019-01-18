@@ -1,4 +1,4 @@
-# Install script for directory: /home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4
+# Install script for directory: /home/lucas/Bureau/INSA/5IF/ProjetGPU/SFMT-src-1.4
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
