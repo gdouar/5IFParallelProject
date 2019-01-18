@@ -519,7 +519,7 @@ void Organism::look_for_new_promoters_starting_after(int32_t pos) {
 	std::map<int, Promoter*>* promotersAdr = &this->promoters;
 	std::map<int, int>* promotersPositionAdr = &this->prom_pos;
 
-	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)
+	#pragma omp parallel shared(countPromAdr, promotersAdr, promotersPositionAdr)
 	#pragma omp for 
     for (int32_t i = pos; i < dna_->length(); i++) {			//PARALLEL appel a promoter_at
         int dist = dna_->promoter_at(i);
@@ -545,7 +545,7 @@ void Organism::look_for_new_promoters_starting_before(int32_t pos) {
 	std::map<int, Promoter*>* promotersAdr = &this->promoters;
 	std::map<int, int>* promotersPositionAdr = &this->prom_pos;
 
-	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)		//PARALLEL appel � promoter_at
+	#pragma omp parallel shared(countPromAdr,promotersAdr, promotersPositionAdr)		//PARALLEL appel a promoter_at
 	#pragma omp for 
     for (int32_t i = 0; i < pos; i++) {
 
