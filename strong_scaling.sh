@@ -12,26 +12,22 @@ function iter_exec {
 
     timeSum=0;
 
-    OLDIFS="$IFS"
-    IFS=","
-
     echo "Temps d'execution de $EXEC" > ${OUTPUT_FILE}
 
     for ((i=0 ; ITERATIONS - $i ; i++))
     do
-        "./${EXEC}" |tail -n1 |read execTime
+        echo "execution $i de $EXEC"
+        execTime=$( ${EXEC} |tail -n1 )
         let "timeSum=$timeSum + $execTime"
         echo "$execTime" >> ${OUTPUT_FILE}
     done
-
-    IFS="$OLDIFS"
 
     echo "Moyenne : " >> ${OUTPUT_FILE}
 
     echo "scale=1;$timeSum/$ITERATIONS" | bc | tr -d "\n" >> ${OUTPUT_FILE}
 }
 
-iter_exec $1 $2 $3
+iter_exec "$1" "$2" "$3"
 
 #    CORES=$1
 #    LENGTH=$2
