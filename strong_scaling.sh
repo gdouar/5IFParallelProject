@@ -1,33 +1,23 @@
 #!/bin/bash
 
-# makes $2 iterations of one execution and get the mean time
-# $1 : the name of the command to execute
-# $2 : the iterations count
-# $3 : the name of the output file
-function iter_exec {
+ITERATIONS=4
+GENERATIONS=10
 
-    EXEC=$1
-    ITERATIONS=$2
-    OUTPUT_FILE=$3
+# make a strong scaling by successive powers of 2 on the actual compiled version of pdc_mini_aevol
+# $1 : the maximum scaling (must be power of 2)
+# $2 : the name of the optimisation
+function strong_scaling {
 
-    timeSum=0;
+    local MAX_SCALING=$1
+    local OPT_NAME=$2
 
-    echo "Temps d'execution de $EXEC" > ${OUTPUT_FILE}
-
-    for ((i=0 ; ITERATIONS - $i ; i++))
+    for ((i=1 ; $MAX_SCALING>=$i ; i=$i * 2))
     do
-        echo "execution $i de $EXEC"
-        execTime=$( ${EXEC} |tail -n1 )
-        let "timeSum=$timeSum + $execTime"
-        echo "$execTime" >> ${OUTPUT_FILE}
+        ./iter_exec "./pdc_mini_aevol -n ${GENERATIONS} --threads $i" "${ITERATIONS}" "results/strong_scaling_${OPT_NAME}_$i.csv"
     done
-
-    echo "Moyenne : " >> ${OUTPUT_FILE}
-
-    echo "scale=1;$timeSum/$ITERATIONS" | bc | tr -d "\n" >> ${OUTPUT_FILE}
 }
 
-iter_exec "$1" "$2" "$3"
+
 
 #    CORES=$1
 #    LENGTH=$2
