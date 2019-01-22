@@ -7,9 +7,12 @@
 BRANCH_NAME=$1
 COMPIL_OPTIONS=$2
 
+git fetch
 git stash
 git stash clear
-git checkout ${BRANCH_NAME}
+git checkout -f ${BRANCH_NAME}
+
+rm -f CMakeCache.txt
 
 cmake . -DCMAKE_CXX_FLAGS="$COMPIL_OPTIONS"
 

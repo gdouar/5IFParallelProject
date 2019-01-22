@@ -1,1 +1,1 @@
-/usr/bin/c++  -fopenmp -g   CMakeFiles/pdc_mini_aevol.dir/main.cpp.o  -o pdc_mini_aevol SFMT-src-1.4/libsfmt.a /usr/lib/x86_64-linux-gnu/libz.so libmini_aevol_gpu.a SFMT-src-1.4/libsfmt.a /usr/lib/x86_64-linux-gnu/libz.so 
+/usr/bin/c++  -fopenmp -O3   CMakeFiles/pdc_mini_aevol.dir/main.cpp.o  -o pdc_mini_aevol SFMT-src-1.4/libsfmt.a /usr/lib/x86_64-linux-gnu/libz.so libmini_aevol_gpu.a SFMT-src-1.4/libsfmt.a /usr/lib/x86_64-linux-gnu/libz.so 
