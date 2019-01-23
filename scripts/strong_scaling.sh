@@ -1,22 +1,32 @@
 #!/bin/bash
 
+# make a strong scaling by successive powers of 2 on the actual compiled version of pdc_mini_aevol
+# $1 : the name of the optimisation
+OPT_NAME=$1
+
+# The name of the global CSV file for the results of the strong scaling
+GLOBAL_RESULTS="../results/strong_scaling.csv"
+
+# The number of iteration of one type of execution
 ITERATIONS=4
+
+# The number of generations in one execution
 GENERATIONS=10
 
-# make a strong scaling by successive powers of 2 on the actual compiled version of pdc_mini_aevol
-# $1 : the maximum scaling (must be power of 2)
-# $2 : the name of the optimisation
-function strong_scaling {
+# The maximum scaling (must be power of 2)
+MAX_SCALING=4
 
-    local MAX_SCALING=$1
-    local OPT_NAME=$2
+printf "${OPT_NAME}," >> ${GLOBAL_RESULTS}
 
-    for ((i=1 ; $MAX_SCALING>=$i ; i=$i * 2))
-    do
-        ./iter_exec "./pdc_mini_aevol -n ${GENERATIONS} --threads $i" "${ITERATIONS}" "results/strong_scaling_${OPT_NAME}_$i.csv"
-    done
-}
+for ((i=1 ; $MAX_SCALING>=$i ; i=$i * 2))
+do
+    TEMP_RESULTS="../results/strong_scaling_${OPT_NAME}_${i}_threads.csv"
 
+    ./iter_exec "../pdc_mini_aevol -n ${GENERATIONS} --threads $i" "${ITERATIONS}" ${TEMP_RESULTS}
+    printf "$(tail -n1 ${TEMP_RESULTS})," >> ${GLOBAL_RESULTS}
+done
+
+echo "" >> ${GLOBAL_RESULTS}
 
 
 #    CORES=$1
