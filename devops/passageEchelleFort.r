@@ -21,12 +21,7 @@ for (i in 1:length(argsL)){
 }
 taillesGrille <- unique(select(perfData, taille_cote_grille))
 print(taillesGrille)
-for(i in 1:nrow(taillesGrille)){
-  print("taille=")
-  print(taillesGrille[i,])
-  perfDataFiltered <- perfData[perfData$taille_cote_grille ==  taillesGrille[i,],]
-  print(perfDataFiltered)
-  perfPlot <- ggplot(perfDataFiltered, aes(x = nb_threads, y=tempsMoyen))+ geom_col() + scale_x_log10(breaks = trans_breaks("log2", function(x) 2^x),
-                                                                                              labels = trans_format("log2", math_format(2^.x)))
-  ggsave(paste("PassageEchelleFort-", taillesGrille[i,], "x", taillesGrille[i,], ".png"))
-}
+ggplot(perfData, aes(x = nb_threads, y=tempsMoyen, group=taille_cote_grille, colour=taille_cote_grille))+ geom_line()+
+    geom_point() + scale_x_log10(breaks = trans_breaks("log2", function(x) 2^x),labels = trans_format("log2", math_format(2^.x)))
+
+ggsave(paste("PassageEchelleFort.png"))
