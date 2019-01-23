@@ -10,7 +10,7 @@ OUTPUT_FILE="$3"
 
 timeSum=0;
 
-echo "Execution time of $EXEC" > ${OUTPUT_FILE}
+echo "Execution times of $EXEC" > ${OUTPUT_FILE}
 
 for ((i=0 ; $ITERATIONS - $i ; i++))
 do
