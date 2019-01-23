@@ -22,7 +22,7 @@ for ((i=1 ; $MAX_SCALING>=$i ; i=$i * 2))
 do
     TEMP_RESULTS="../results/strong_scaling_${OPT_NAME}_${i}_threads.csv"
 
-    ./iter_exec "../pdc_mini_aevol -n ${GENERATIONS} --threads $i" "${ITERATIONS}" ${TEMP_RESULTS}
+    ./iter_exec "../pdc_mini_aevol -n ${GENERATIONS} --threads ${i}" "${ITERATIONS}" "${TEMP_RESULTS}"
     printf "$(tail -n1 ${TEMP_RESULTS})," >> ${GLOBAL_RESULTS}
 done
 

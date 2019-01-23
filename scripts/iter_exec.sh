@@ -4,9 +4,9 @@
 # $1 : the name of the command to execute
 # $2 : the iterations count
 # $3 : the name of the output file when each time and the mean time is saved
-EXEC=$1
+EXEC="$1"
 ITERATIONS=$2
-OUTPUT_FILE=$3
+OUTPUT_FILE="$3"
 
 timeSum=0;
 
