@@ -14,6 +14,7 @@ git checkout -f ${BRANCH_NAME}
 
 rm -f CMakeCache.txt
 
+cd ..
 cmake . -DCMAKE_CXX_FLAGS="$COMPIL_OPTIONS"
-
 make
+cd scripts
