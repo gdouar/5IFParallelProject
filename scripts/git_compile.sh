@@ -5,7 +5,7 @@
 # $2 : the compilation options (CXX_FLAGS)
 
 BRANCH_NAME=$1
-COMPIL_OPTIONS=$2
+COMPILE_OPTIONS=$2
 
 git fetch
 git stash
@@ -15,6 +15,6 @@ git checkout -f ${BRANCH_NAME}
 rm -f CMakeCache.txt
 
 cd ..
-cmake . -DCMAKE_CXX_FLAGS="$COMPIL_OPTIONS"
+cmake . -DCMAKE_CXX_FLAGS="${COMPILE_OPTIONS}"
 make
 cd scripts
