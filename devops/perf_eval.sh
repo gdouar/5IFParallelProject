@@ -64,7 +64,7 @@ branch_nb=0
 for branch_name in ${BRANCH_NAMES}
 do
     # checkout and compile the branch
-    echo "checkout branch ${branch name}"
+    echo "checkout branch ${branch_name}"
     git_compile.sh ${branch_name} ${COMPILE_OPTIONS[${branch_nb}]}
 
     # if it is not the first branch on which the perf eval is done, retrieve the previous results
