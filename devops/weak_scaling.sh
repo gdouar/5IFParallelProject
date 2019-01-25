@@ -32,8 +32,10 @@ do
     if [[ ${height_growth} == 1 ]]
     then
         (( height*=2 ))
+        height_growth=0
     else
         (( width*=2 ))
+        height_growth=1
     fi
 done
 
