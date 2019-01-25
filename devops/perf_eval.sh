@@ -87,7 +87,6 @@ do
 
     git add ${strong_csv_fullname}
     git commit -m "${strong_csv_fullname}"
-    git push
 
     (( branch_nb++ ))
     prev_branch=${branch_name}
