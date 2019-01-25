@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# make a strong scaling by successive powers of 2 on the actual compiled version of pdc_mini_aevol
+# Make a strong scaling by successive powers of 2 on the actual compiled version of pdc_mini_aevol
 # $1 : The name of the optimisation
 # $2 : The name of the global CSV file for the results of the strong scaling, scheme :
 # "opt_name,nb_threads,t1,t2,...,mean_time"
@@ -15,12 +15,12 @@ ITERATIONS=$4
 GENERATIONS=$5
 MAX_SCALING=$6
 
-GLOBAL_CSV_FULLNAME="${RESULTS_DIR}${GLOBAL_CSV}"
+global_csv_fullname="${RESULTS_DIR}${GLOBAL_CSV}"
 
 for (( i=1 ; $MAX_SCALING>=$i ; i=$i * 2 ))
 do
     echo "executions with ${i} threads"
-    printf "${OPT_NAME},${i}," >> ${GLOBAL_CSV_FULLNAME}
-    ./iter_exec.sh "../pdc_mini_aevol -n ${GENERATIONS} --threads ${i}" "${ITERATIONS}" "${GLOBAL_CSV_FULLNAME}"
+    printf "${OPT_NAME},${i}," >> ${global_csv_fullname}
+    ./iter_exec.sh "../pdc_mini_aevol -n ${GENERATIONS} --threads ${i}" "${ITERATIONS}" "${global_csv_fullname}"
 done
 
