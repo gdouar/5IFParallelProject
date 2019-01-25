@@ -14,8 +14,8 @@ for (( i=0 ; $ITERATIONS - $i ; i++ ))
 do
     echo "execution $i of $EXEC"
     execTime=$( ${EXEC} |tail -n1 )
-    execTime=$(echo "scale=3;$execTime/1000" | bc)
-    let "timeSum=$timeSum + ($execTime / 1000)"
+    execTime=$(echo "scale=3;$execTime/1000" | bc | tr -d "\n")
+    timeSum=$(echo "scale=3;${timeSum} + ${execTime}" | bc | tr -d "\n")
     printf "${execTime}," >> ${OUTPUT_CSV}
 done
 
