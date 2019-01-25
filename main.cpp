@@ -33,6 +33,7 @@
 #include <chrono>
 #include <utility>
 #include "ExpManager.h"
+#define OMP_NUM_THREADS 16
 
 void print_help(char* prog_path) {
     // Get the program file-name in prog_name (strip prog_path of the path)
@@ -80,6 +81,7 @@ int main(int argc, char* argv[]) {
     int resume = -1;
     int backup_step = -1;
     int seed = -1;
+    int nbThreads = OMP_NUM_THREADS;
     const char * options_list = "e:::n:w:h:m:g:b:r:s:";
     static struct option long_options_list[] = {
             // Print help
@@ -100,6 +102,8 @@ int main(int argc, char* argv[]) {
             { "backup_step", required_argument,  NULL, 'b' },
             // Seed
             { "seed", required_argument,  NULL, 's' },
+            // open mp threads
+            { "threads", required_argument,  NULL, 't' },
             { 0, 0, 0, 0 }
     };
 
@@ -148,6 +152,10 @@ int main(int argc, char* argv[]) {
                 nbstep = atoi(optarg);
                 break;
             }
+            case 't' : {
+                nbThreads = atoi(optarg);
+                break;
+            }
             default : {
                 // An error message is printed in getopt_long, we just need to exit
                 printf("Error unknown parameter\n");
@@ -174,6 +182,8 @@ int main(int argc, char* argv[]) {
         if (backup_step == -1) backup_step = 1000;
         if (seed == -1) seed = 566545665;
     }
+
+
     ExpManager *exp_manager;
     if (resume == -1) {
         exp_manager = new ExpManager(height, width, seed, mutation_rate, genome_size, 0.03, 100,
