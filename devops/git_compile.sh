@@ -17,4 +17,4 @@ rm -f CMakeCache.txt
 cd ..
 cmake . -DCMAKE_CXX_FLAGS="${COMPILE_OPTIONS}"
 make
-cd scripts
+cd devops

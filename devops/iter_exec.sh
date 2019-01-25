@@ -1,25 +1,22 @@
 #!/bin/bash
 
-# makes $2 iterations of one execution and get the mean time
+# makes $2 iterations of one execution and save the time of each execution and the mean time
 # $1 : the name of the command to execute
 # $2 : the iterations count
-# $3 : the name of the output file when each time and the mean time is saved
+# $3 : the name of the output CSV file where each time and the mean time is saved, scheme : "t1,t2,...,meanTime"
 EXEC="$1"
 ITERATIONS=$2
-OUTPUT_FILE="$3"
+OUTPUT_CSV="$3"
 
 timeSum=0;
 
-echo "Execution times of $EXEC" > ${OUTPUT_FILE}
-
-for ((i=0 ; $ITERATIONS - $i ; i++))
+for (( i=0 ; $ITERATIONS - $i ; i++ ))
 do
     echo "execution $i of $EXEC"
     execTime=$( ${EXEC} |tail -n1 )
-    let "timeSum=$timeSum + $execTime"
-    echo "$execTime" >> ${OUTPUT_FILE}
+    execTime=$(echo "scale=3;$execTime/1000" | bc)
+    let "timeSum=$timeSum + ($execTime / 1000)"
+    printf "${execTime}," >> ${OUTPUT_CSV}
 done
 
-echo "Mean : " >> ${OUTPUT_FILE}
-
-echo "scale=1;$timeSum/$ITERATIONS" | bc | tr -d "\n" >> ${OUTPUT_FILE}
+echo "scale=3;$timeSum/$ITERATIONS" | bc >> ${OUTPUT_CSV}
