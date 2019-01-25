@@ -19,9 +19,9 @@ for (i in 1:length(argsL)){
     perfData <- read.csv(file=(argsL)$file, header=TRUE, sep=",")
   }
 }
-taillesGrille <- unique(select(perfData, taille_cote_grille))
+taillesGrille <- unique(select(perfData, version))
 print(taillesGrille)
-ggplot(perfData, aes(x = nb_threads, y=tempsMoyen, group=taille_cote_grille, colour=taille_cote_grille))+ geom_line()+
+ggplot(perfData, aes(x = nb_threads, y=tempsMoyen, group=version, colour=version))+ geom_line()+
     geom_point() + scale_x_log10(breaks = trans_breaks("log2", function(x) 2^x),labels = trans_format("log2", math_format(2^.x)))
 
 ggsave(paste("PassageEchelleFort.png"))
