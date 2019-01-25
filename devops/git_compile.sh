@@ -12,7 +12,7 @@ git fetch
 git stash
 git stash clear
 git checkout -f ${BRANCH_NAME}
-
+git pull
 
 # compilation
 cd ..
