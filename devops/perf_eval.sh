@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #The OpenMP compile option
-F_OPEN_MP='-fopemp'
+F_OPEN_MP='-fopenmp'
 
 #The -O3 compilation option
 O3='-O3'
