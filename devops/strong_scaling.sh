@@ -24,5 +24,3 @@ do
     ./iter_exec.sh "../pdc_mini_aevol -n ${GENERATIONS} --threads ${i}" "${ITERATIONS}" "${GLOBAL_CSV_FULLNAME}"
 done
 
-echo "" >> ${GLOBAL_CSV_FULLNAME}
-
