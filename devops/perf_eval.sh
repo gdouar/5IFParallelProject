@@ -85,6 +85,10 @@ do
 
     echo "generating graph for strong scaling on ${branch_name}"
 
+    git add ${strong_csv_fullname}
+    git commit -m "${strong_csv_fullname}"
+    git push
+
     (( branch_nb++ ))
     prev_branch=${branch_name}
 done
