@@ -7,14 +7,16 @@
 BRANCH_NAME=$1
 COMPILE_OPTIONS=$2
 
+# checkout
 git fetch
 git stash
 git stash clear
 git checkout -f ${BRANCH_NAME}
 
-rm -f CMakeCache.txt
 
+# compilation
 cd ..
+rm -f CMakeCache.txt
 cmake . -DCMAKE_CXX_FLAGS="${COMPILE_OPTIONS}"
 make
 cd devops
