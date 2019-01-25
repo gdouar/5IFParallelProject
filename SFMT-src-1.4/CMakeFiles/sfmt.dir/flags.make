@@ -3,15 +3,15 @@
 
 # compile C with /usr/bin/cc
 # compile CXX with /usr/bin/c++
-C_FLAGS =   -std=c++14
+C_FLAGS = -g   -std=c++14
 
 C_DEFINES = -DSFMT_MEXP=607 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS
 
-C_INCLUDES = -I/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/. 
+C_INCLUDES = -I/home/pierre-louis/INSA-5IF/Sema31/5IFParallelProject/SFMT-src-1.4/. 
 
-CXX_FLAGS = -pg -fopenmp   -std=c++14 -std=gnu++14
+CXX_FLAGS = -fopenmp -g   -std=c++14 -std=gnu++14
 
 CXX_DEFINES = -DSFMT_MEXP=607 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS
 
-CXX_INCLUDES = -I/home/pierre-louis/INSA-5IF/Sema31/Pdc-Aevol/5IFParallelProject/SFMT-src-1.4/. 
+CXX_INCLUDES = -I/home/pierre-louis/INSA-5IF/Sema31/5IFParallelProject/SFMT-src-1.4/. 
 
