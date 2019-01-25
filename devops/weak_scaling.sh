@@ -17,7 +17,7 @@ GENERATIONS=$5
 MAX_SCALING=$6
 START_SIDE=$7
 
-GLOBAL_CSV_FULLNAME="${RESULTS_DIR}${GLOBAL_CSV}"
+global_csv_fullname="${RESULTS_DIR}${GLOBAL_CSV}"
 
 height=${START_SIDE}
 width=${START_SIDE}
@@ -26,8 +26,8 @@ height_growth=0
 for (( i=1 ; $MAX_SCALING>=$i ; i=$i * 2 ))
 do
     echo "executions with ${i} threads"
-    printf "${OPT_NAME},${i}," >> ${GLOBAL_CSV_FULLNAME}
-    ./iter_exec.sh "../pdc_mini_aevol -n ${GENERATIONS} -w ${width} -h ${height} --threads ${i}" "${ITERATIONS}" "${GLOBAL_CSV_FULLNAME}"
+    printf "${OPT_NAME},${i}," >> ${global_csv_fullname}
+    ./iter_exec.sh "../pdc_mini_aevol -n ${GENERATIONS} -w ${width} -h ${height} --threads ${i}" "${ITERATIONS}" "${global_csv_fullname}"
 
     if [[ ${height_growth} == 1 ]]
     then

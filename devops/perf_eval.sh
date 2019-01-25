@@ -48,6 +48,9 @@ GENERATIONS=10
 # The maximum scaling (must be power of 2)
 MAX_SCALING=4
 
+# The start size of the side of the population grid for the weak scaling
+START_SIDE=16
+
 
 strong_csv_fullname=${RESULTS_DIR}${STRONG_SCALING_CSV}
 weak_csv_fullname=${RESULTS_DIR}${WEAK_SCALING_CSV}
@@ -96,6 +99,9 @@ do
 
     echo "make strong scaling on ${branch_name}"
     ./strong_scaling.sh "${branch_name}" "${STRONG_SCALING_CSV}" "${RESULTS_DIR}" ${ITERATIONS} ${GENERATIONS} ${MAX_SCALING}
+
+    echo "make weak scaling on ${branch_name}"
+    ./weak_scaling.sh "${branch_name}" "${WEAK_SCALING_CSV}" "${RESULTS_DIR}" ${ITERATIONS} ${GENERATIONS} ${MAX_SCALING} ${START_SIDE}
 
     echo "generating graphs for strong scaling on ${branch_name}"
     Rscript ./graph-scaling.r --file=${strong_csv_fullname} --graph=${strong_graph_fullname}
