@@ -81,7 +81,7 @@ do
     fi
 
     echo "make strong scaling on ${branch_name}"
-    ./strong_scaling.sh ${branch_name} ${STRONG_SCALING_CSV} ${ITERATIONS} ${GENERATIONS} ${MAX_SCALING}
+    ./strong_scaling.sh ${branch_name} ${STRONG_SCALING_CSV} ${RESULTS_DIR} ${ITERATIONS} ${GENERATIONS} ${MAX_SCALING}
 
     (( branch_nb++ ))
     prev_branch=${branch_name}
