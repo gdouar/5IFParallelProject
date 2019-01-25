@@ -64,8 +64,8 @@ branch_nb=0
 for branch_name in ${BRANCH_NAMES}
 do
     # checkout and compile the branch
-    echo "checkout branch ${branch name}"
-    git_compile.sh ${branch_name} ${COMPILE_OPTIONS[${branch_nb}]}
+    echo "checkout branch ${branch_name}"
+    ./git_compile.sh ${branch_name} ${COMPILE_OPTIONS[${branch_nb}]}
 
     # if it is not the first branch on which the perf eval is done, retrieve the previous results
     if [[ -n ${prev_branch} ]]
@@ -81,7 +81,7 @@ do
     fi
 
     echo "make strong scaling on ${branch_name}"
-    strong_scaling.sh ${branch_name} ${STRONG_SCALING_CSV} ${ITERATIONS} ${GENERATIONS} ${MAX_SCALING}
+    ./strong_scaling.sh ${branch_name} ${STRONG_SCALING_CSV} ${ITERATIONS} ${GENERATIONS} ${MAX_SCALING}
 
     (( branch_nb++ ))
     prev_branch=${branch_name}
