@@ -23,7 +23,7 @@ for (( i=1 ; $MAX_SCALING>=$i ; i=$i * 2 ))
 do
     echo "executions with ${i} threads"
     printf "${OPT_NAME},${i}," >> ${GLOBAL_CSV_FULLNAME}
-    iter_exec.sh "../pdc_mini_aevol -n ${GENERATIONS} --threads ${i}" "${ITERATIONS}" "${GLOBAL_CSV_FULLNAME}"
+    ./iter_exec.sh "../pdc_mini_aevol -n ${GENERATIONS} --threads ${i}" "${ITERATIONS}" "${GLOBAL_CSV_FULLNAME}"
 done
 
 echo "" >> ${GLOBAL_CSV_FULLNAME}
