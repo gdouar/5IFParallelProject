@@ -17,8 +17,6 @@ MAX_SCALING=$6
 
 GLOBAL_CSV_FULLNAME="${RESULTS_DIR}${GLOBAL_CSV}"
 
-printf "${OPT_NAME}," >> ${GLOBAL_CSV_FULLNAME}
-
 for (( i=1 ; $MAX_SCALING>=$i ; i=$i * 2 ))
 do
     echo "executions with ${i} threads"
