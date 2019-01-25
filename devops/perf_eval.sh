@@ -50,7 +50,7 @@ function git_checkout_results {
 
     BRANCH="$1"
 
-    git checkout origin/${BRANCH} ${strong_csv_fullname} ${weak_csv_fullname}
+    git checkout ${BRANCH} ${strong_csv_fullname} ${weak_csv_fullname}
 }
 
 
