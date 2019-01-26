@@ -32,10 +32,10 @@ STRONG_SCALING_GRAPH='strong_scaling.png'
 WEAK_SCALING_GRAPH='weak_scaling.png'
 
 # The CSV scheme for the strong scaling
-STRONG_SCALING_CSV_SCHEME='version,nb_threads,t1,t2,t3,t4,t5,tempsMoyen'
+STRONG_SCALING_CSV_SCHEME='version,nb_threads,t1,t2,t3,t4,tempsMoyen'
 
 # The CSV scheme for the strong scaling
-WEAK_SCALING_CSV_SCHEME='version,nb_threads,t1,t2,t3,t4,t5,tempsMoyen'
+WEAK_SCALING_CSV_SCHEME='version,nb_threads,t1,t2,t3,t4,tempsMoyen'
 
 
 
