@@ -40,7 +40,7 @@ WEAK_SCALING_CSV_SCHEME='version,nb_threads,t1,t2,t3,t4,t5,tempsMoyen'
 
 
 # The number of iterations of one type of execution
-ITERATIONS=4
+ITERATIONS=5
 
 # The number of generations in one execution
 GENERATIONS=10
