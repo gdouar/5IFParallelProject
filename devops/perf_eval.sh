@@ -43,10 +43,10 @@ WEAK_SCALING_CSV_SCHEME='version,nb_threads,t1,t2,t3,t4,t5,tempsMoyen'
 ITERATIONS=5
 
 # The number of generations in one execution
-GENERATIONS=10
+GENERATIONS=1000
 
 # The maximum scaling (must be power of 2)
-MAX_SCALING=4
+MAX_SCALING=64
 
 # The start size of the side of the population grid for the weak scaling
 START_SIDE=16
