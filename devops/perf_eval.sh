@@ -40,10 +40,10 @@ WEAK_SCALING_CSV_SCHEME='version,nb_threads,t1,t2,t3,t4,t5,tempsMoyen'
 
 
 # The number of iterations of one type of execution
-ITERATIONS=5
+ITERATIONS=4
 
 # The number of generations in one execution
-GENERATIONS=1000
+GENERATIONS=200
 
 # The maximum scaling (must be power of 2)
 MAX_SCALING=64
